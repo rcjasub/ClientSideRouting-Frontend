@@ -2,7 +2,7 @@ import React from "react";
 import TaskCard from "./TaskCard";
 
 const TaskList = ({ tasks, fetchAllTasks }) => {
-  return (
+    return (
     <div>
       {tasks.length > 0 ? (
         tasks.map((task) => (

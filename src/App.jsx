@@ -5,7 +5,10 @@ import "./AppStyles.css";
 import TaskList from "./components/TaskList";
 import AddTask from "./components/AddTask";
 import NavBar from "./components/NavBar";
-import { BrowserRouter as Router, Routes } from "react-router";
+import { BrowserRouter as Router, Route, Routes } from "react-router";
+import TaskCard from "./components/TaskCard";
+import CompTask from "./components/CompTask";
+import IncompTask from "./components/IncompTask";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -19,6 +22,10 @@ const App = () => {
     }
   }
 
+  // const FilterTask = ({tasks, fetchAllTasks}) => {
+  //   tasks.filter((task))
+  // }
+
   useEffect(() => {
     fetchAllTasks();
   }, []);
@@ -26,9 +33,32 @@ const App = () => {
   return (
     <div>
       <NavBar />
-      <TaskList tasks={tasks} fetchAllTasks={fetchAllTasks} />
-      <AddTask fetchAllTasks={fetchAllTasks} />
       <Routes>
+        <Route
+          path="/"
+          element={<TaskList tasks={tasks} fetchAllTasks={fetchAllTasks} />}
+        />
+
+        <Route
+          path="/comp"
+          element={<CompTask tasks={tasks} fetchAllTasks={fetchAllTasks} />}
+        />
+
+        <Route
+          path="/incomp"
+          element={<IncompTask tasks={tasks} fetchAllTasks={fetchAllTasks} />}
+        />
+
+        <Route
+          path="/AddTask"
+          element={<AddTask fetchAllTasks={fetchAllTasks} />}
+        />
+
+        <Route
+          path="/task/:id"
+          element={<TaskDetail tasks={tasks} fetchAllTasks={fetchAllTasks} />}
+        />
+
         {/* Currently, we don't have any routes defined. And you can see above that we're
             rendering the TaskList and AddTask components directly, no matter what our URL looks like.
             Let's fix that! */}
