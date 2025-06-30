@@ -1,6 +1,6 @@
-# Intro to Express (This is the Frontend Repo)
+# Client-Side Routing (This is the Frontend Repo)
 
-This is just a frontend repo used for the Intro to Express assignment. By default, this application runs on [http://localhost:3000](http://localhost:3000)
+This is just a frontend repo used for the Client-Side assignment. By default, this application runs on [http://localhost:3000](http://localhost:3000)
 
 ## 🚀 Getting Started
 
@@ -8,4 +8,4 @@ This is just a frontend repo used for the Intro to Express assignment. By defaul
 2. Install the NPM packages: `npm install`
 3. Preview your React app: `npm run start-dev`
 
-If you'd like to deploy this application to GitHub Pages, run `npm start` to generate `docs/main.js` and then push those changes to the main branch. Then, go to Settings > Pages and configure GitHub Page to deploy from the main branch at the /docs directory.
+You should be able to deploy this application to Vercel by simply connecting the GitHub repo to a new Vercel project.
