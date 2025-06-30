@@ -1,19 +1,27 @@
-import React, { useState, useEffect } from "react";
-import TaskCard from "./TaskCard";
-import axios from "axios";
+import React, { useEffect } from "react";
+import { useParams } from "react-router";
 
+const TaskDetail = ({ tasks, fetchAllTasks }) => {
+  const { id } = useParams();
+  const taskId = Number(id);
 
-const TaskDeatail = async({task}) => {
+  useEffect(() => {
+    fetchAllTasks();
+  }, []);
 
+  const selectedTask = tasks.find((task) => task.id === taskId);
 
-    try {
-    const res =  await axios.get(`http://localhost:8080/api/tasks/${task.id}`, {
-       
-      });
-      fetchAllTasks();
-    } catch (error) {
-      console.error("Error completing task:", error);
-    }
-  };
+  if (!selectedTask) {
+    return <p>Loading or task not found.</p>;
+  }
 
-export default TaskDeatail;
+  return (
+    <div>
+      <h1>{selectedTask.title}</h1>
+      <h2>{selectedTask.description}</h2>
+      <p>Status: {selectedTask.completed ? "Completed" : "Incomplete"}</p>
+    </div>
+  );
+};
+
+export default TaskDetail;

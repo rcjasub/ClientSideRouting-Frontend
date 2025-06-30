@@ -6,9 +6,10 @@ import TaskList from "./components/TaskList";
 import AddTask from "./components/AddTask";
 import NavBar from "./components/NavBar";
 import { BrowserRouter as Router, Route, Routes } from "react-router";
-import TaskCard from "./components/TaskCard";
+// import TaskCard from "./components/TaskCard";
 import CompTask from "./components/CompTask";
 import IncompTask from "./components/IncompTask";
+import TaskDetail from "./components/TaskDetail";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
